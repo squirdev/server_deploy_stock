@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nq.dao.UserStockSubscribeMapper">
+
+    <resultMap id="BaseResultMap" type="com.nq.pojo.UserStockSubscribe" >
+        <result column="id" property="id" />
+        <result column="order_no" property="orderNo" />
+        <result column="user_id" property="userId" />
+        <result column="real_name" property="realName" />
+        <result column="phone" property="phone" />
+        <result column="agent_id" property="agentId" />
+        <result column="agent_name" property="agentName" />
+        <result column="new_code" property="newCode" />
+        <result column="new_name" property="newName" />
+        <result column="new_type" property="newType" />
+        <result column="bond" property="bond" />
+        <result column="buy_price" property="buyPrice" />
+        <result column="apply_nums" property="applyNums" />
+        <result column="apply_number" property="applyNumber" />
+        <result column="status" property="status" />
+        <result column="add_time" property="addTime" />
+        <result column="submit_time" property="submitTime" />
+        <result column="end_time" property="endTime" />
+        <result column="fix_time" property="fixTime" />
+        <result column="remarks" property="remarks" />
+        <result column="type" property="type" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                id,
+                order_no,
+                user_id,
+                real_name,
+                phone,
+                agent_id,
+                agent_name,
+                new_code,
+                new_name,
+                new_type,
+                bond,
+                buy_price,
+                apply_nums,
+                apply_number,
+                status,
+                add_time,
+                submit_time,
+                end_time,
+                fix_time,
+                remarks,
+                type
+    </sql>
+
+    <insert id="insert1" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.nq.pojo.UserStockSubscribe">
+        INSERT INTO user_stock_subscribe
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != userId'>
+                user_id,
+            </if>
+            <if test ='null != realName'>
+                real_name,
+            </if>
+            <if test ='null != phone'>
+                phone,
+            </if>
+            <if test ='null != agentId'>
+                agent_id,
+            </if>
+            <if test ='null != agentName'>
+                agent_name,
+            </if>
+            <if test ='null != newCode'>
+                new_code,
+            </if>
+            <if test ='null != newName'>
+                new_name,
+            </if>
+            <if test ='null != newType'>
+                new_type,
+            </if>
+            <if test ='null != bond'>
+                bond,
+
+            </if>
+            <if test ='null != buyPrice'>
+                buy_price,
+            </if>
+            <if test ='null != applyNums'>
+                apply_nums,
+            </if>
+            <if test ='null != applyNumber'>
+                apply_number,
+            </if>
+
+            <if test ='null != status'>
+                status,
+            </if>
+            <if test ='null != addTime'>
+                add_time,
+            </if>
+            <if test ='null != submitTime'>
+                submit_time,
+            </if>
+            <if test ='null != endTime'>
+                end_time,
+            </if>
+            <if test ='null != fixTime'>
+                fix_time,
+            </if>
+            <if test ='null != remarks'>
+                remarks
+            </if>
+            <if test ='null != type'>
+                type
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != userId'>
+                #{userId},
+            </if>
+            <if test ='null != realName'>
+                #{realName},
+            </if>
+            <if test ='null != phone'>
+                #{phone},
+            </if>
+            <if test ='null != agentId'>
+                #{agentId},
+            </if>
+            <if test ='null != agentName'>
+                #{agentName},
+            </if>
+            <if test ='null != newCode'>
+                #{newCode},
+            </if>
+            <if test ='null != newName'>
+                #{newName},
+            </if>
+            <if test ='null != newType'>
+                #{newType},
+            </if>
+            <if test ='null != bond'>
+                #{bond},
+            </if>
+            <if test ='null != buyPrice'>
+                #{buyPrice},
+            </if>
+            <if test ='null != applyNums'>
+                #{applyNums},
+            </if>
+            <if test ='null != applyNumber'>
+                #{applyNumber},
+            </if>
+
+            <if test ='null != status'>
+                #{status},
+            </if>
+            <if test ='null != addTime'>
+                #{addTime},
+            </if>
+            <if test ='null != submitTime'>
+                #{submitTime},
+            </if>
+            <if test ='null != endTime'>
+                #{endTime},
+            </if>
+            <if test ='null != fixTime'>
+                #{fixTime},
+            </if>
+            <if test ='null != remarks'>
+                #{remarks}
+            </if>
+            <if test ='null != type'>
+                #{type}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete1" >
+        DELETE FROM user_stock_subscribe
+        WHERE id = #{id}
+    </delete>
+
+    <update id="update1" parameterType="com.nq.pojo.UserStockSubscribe">
+        UPDATE user_stock_subscribe
+        <set>
+            <if test ='null != userId'>user_id = #{userId},</if>
+            <if test ='null != realName'>real_name = #{realName},</if>
+            <if test ='null != phone'>phone = #{phone},</if>
+            <if test ='null != agentId'>agent_id = #{agentId},</if>
+            <if test ='null != agentName'>agent_name = #{agentName},</if>
+            <if test ='null != newCode'>new_code = #{newCode},</if>
+            <if test ='null != newName'>new_name = #{newName},</if>
+            <if test ='null != newType'>new_type = #{newType},</if>
+            <if test ='null != bond'>bond = #{bond},</if>
+            <if test ='null != buyPrice'>buy_price = #{buyPrice},</if>
+            <if test ='null != applyNums'>apply_nums = #{applyNums},</if>
+            <if test ='null != applyNumber'>apply_number = #{applyNumber},</if>
+            <if test ='null != status'>status = #{status},</if>
+            <if test ='null != addTime'>add_time = #{addTime},</if>
+            <if test ='null != submitTime'>submit_time = #{submitTime},</if>
+            <if test ='null != endTime'>end_time = #{endTime},</if>
+            <if test ='null != fixTime'>fix_time = #{fixTime},</if>
+            <if test ='null != remarks'>remarks = #{remarks}</if>
+            <if test ='null != type'>type = #{type}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+
+    <select id="load" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM user_stock_subscribe
+        WHERE id = #{id}
+    </select>
+
+    <select id="pageList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM user_stock_subscribe
+        where 1=1 and type = 1 or type = 2
+        <if test="keyword != null and keyword != ''">
+            and (user_id = #{keyword} or real_name like CONCAT('%',#{keyword},'%') or phone like CONCAT('%',#{keyword},'%'))
+        </if>
+        order by id desc
+    </select>
+
+    <select id="pageListCount" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM user_stock_subscribe
+    </select>
+
+    <!--查询用户最新新股申购数据-->
+    <select id="getOneSubscribeByUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM user_stock_subscribe
+        WHERE phone = #{phone}  order by id
+    </select>
+
+</mapper>

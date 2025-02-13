@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nq.dao.SiteAdminIndexMapper">
+
+    <resultMap id="BaseResultMap" type="com.nq.pojo.SiteAdminIndex">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="colorWeak" column="color_weak" jdbcType="VARCHAR"/>
+            <result property="contentWidth" column="content_width" jdbcType="VARCHAR"/>
+            <result property="fixSiderbar" column="fix_siderbar" jdbcType="VARCHAR"/>
+            <result property="fixedHeader" column="fixed_header" jdbcType="VARCHAR"/>
+            <result property="hideCopyButton" column="hide_copy_button" jdbcType="VARCHAR"/>
+            <result property="hideHintAlert" column="hide_hint_alert" jdbcType="VARCHAR"/>
+            <result property="layout" column="layout" jdbcType="VARCHAR"/>
+            <result property="primaryColor" column="primary_color" jdbcType="VARCHAR"/>
+            <result property="theme" column="theme" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,color_weak,content_width,
+        fix_siderbar,fixed_header,hide_copy_button,
+        hide_hint_alert,layout,primary_color,
+        theme
+    </sql>
+</mapper>

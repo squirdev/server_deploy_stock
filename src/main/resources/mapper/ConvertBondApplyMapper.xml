@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nq.dao.ConvertBondApplyMapper">
+
+    <resultMap id="BaseResultMap" type="com.nq.pojo.ConvertBondApply">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="agentId" column="agent_id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="bondId" column="bond_id" jdbcType="INTEGER"/>
+            <result property="applyMoney" column="apply_money" jdbcType="DECIMAL"/>
+            <result property="applyNum" column="apply_num" jdbcType="INTEGER"/>
+            <result property="sucNum" column="suc_num" jdbcType="INTEGER"/>
+            <result property="sucMony" column="suc_mony" jdbcType="DECIMAL"/>
+            <result property="applyDate" column="apply_date" jdbcType="TIMESTAMP"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="refundMony" column="refund_mony" jdbcType="DECIMAL"/>
+            <result property="sucDate" column="suc_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,agent_id,user_id,
+        phone,bond_id,apply_money,
+        apply_num,suc_num,suc_mony,
+        apply_date,status,refund_mony,
+        suc_date
+    </sql>
+</mapper>

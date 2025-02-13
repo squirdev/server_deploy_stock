@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nq.dao.ConvertBondMapper">
+
+    <resultMap id="BaseResultMap" type="com.nq.pojo.ConvertBond">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="bondBuyCode" column="bond_buy_code" jdbcType="VARCHAR"/>
+            <result property="bondName" column="bond_name" jdbcType="VARCHAR"/>
+            <result property="bondType" column="bond_type" jdbcType="VARCHAR"/>
+            <result property="bondCode" column="bond_code" jdbcType="VARCHAR"/>
+            <result property="stockCode" column="stock_code" jdbcType="VARCHAR"/>
+            <result property="price" column="price" jdbcType="DECIMAL"/>
+            <result property="applyDate" column="apply_date" jdbcType="TIMESTAMP"/>
+            <result property="pubDate" column="pub_date" jdbcType="TIMESTAMP"/>
+            <result property="listDate" column="list_date" jdbcType="TIMESTAMP"/>
+            <result property="surplus" column="surplus" jdbcType="INTEGER"/>
+            <result property="applyLimit" column="apply_limit" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,bond_buy_code,bond_name,
+        bond_type,bond_code,stock_code,
+        price,apply_date,pub_date,
+        list_date,surplus,apply_limit,
+        status,create_time
+    </sql>
+</mapper>

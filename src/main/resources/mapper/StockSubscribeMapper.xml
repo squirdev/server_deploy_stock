@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nq.dao.StockSubscribeMapper">
+
+    <resultMap id="BaseResultMap" type="com.nq.pojo.StockSubscribe">
+            <id property="newlistId" column="newlist_id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="code" column="code" jdbcType="VARCHAR"/>
+            <result property="price" column="price" jdbcType="VARCHAR"/>
+            <result property="orderNumber" column="order_number" jdbcType="BIGINT"/>
+            <result property="zt" column="zt" jdbcType="TINYINT"/>
+            <result property="isLock" column="isLock" jdbcType="TINYINT"/>
+            <result property="subscribeTime" column="subscribe_time" jdbcType="TIMESTAMP"/>
+            <result property="subscriptionTime" column="subscription_time" jdbcType="TIMESTAMP"/>
+            <result property="type" column="type" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        newlist_id,name,code,
+        price,order_number,zt,is_lock,
+        subscribe_time,subscription_time,type
+    </sql>
+<!--    <select id="listByAdmin"  resultMap="BaseResultMap" parameterType="map">-->
+<!--        select-->
+<!--        <include refid="Base_Column_List"/>-->
+<!--        from stock_subscribe-->
+<!--        <where>-->
+<!--        <if test="type != null">-->
+<!--            and type = #{type}-->
+<!--        </if>-->
+<!--        <if test="zt != null">-->
+<!--            and zt = #{zt}-->
+<!--        </if>-->
+<!--        <if test="code != null and code != ''">-->
+<!--                and code like '%${mohu}%'-->
+<!--        </if>-->
+<!--        <if test="name != null and name !=''">-->
+<!--            and name = like concat('%',#{name},'%')-->
+<!--        </if>-->
+<!--        </where>-->
+
+
+<!--    </select>-->
+</mapper>

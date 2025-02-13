@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nq.dao.StockDzMapper">
+
+    <resultMap id="BaseResultMap" type="com.nq.pojo.StockDz">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="stockName" column="stock_name" jdbcType="VARCHAR"/>
+            <result property="stockCode" column="stock_code" jdbcType="VARCHAR"/>
+            <result property="stockType" column="stock_type" jdbcType="VARCHAR"/>
+            <result property="stockGid" column="stock_gid" jdbcType="VARCHAR"/>
+            <result property="stockPlate" column="stock_plate" jdbcType="VARCHAR"/>
+            <result property="isLock" column="is_lock" jdbcType="INTEGER"/>
+            <result property="isShow" column="is_show" jdbcType="INTEGER"/>
+            <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+            <result property="spreadRate" column="spread_rate" jdbcType="DECIMAL"/>
+            <result property="increaseRatio" column="increase_ratio" jdbcType="DECIMAL"/>
+            <result property="stockNum" column="stock_num" jdbcType="INTEGER"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+             <result property="discount" column="discount" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,stock_name,stock_code,
+        stock_type,stock_gid,stock_plate,
+        is_lock,is_show,add_time,
+        spread_rate,increase_ratio,stock_num,
+        password,start_time,end_time,discount
+    </sql>
+</mapper>
