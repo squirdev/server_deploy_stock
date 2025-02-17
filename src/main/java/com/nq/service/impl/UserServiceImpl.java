@@ -216,7 +216,7 @@ public class UserServiceImpl implements IUserService {
 
     public User getCurrentUser(HttpServletRequest request) {
         String property = PropertiesUtil.getProperty("user.cookie.name");
-//        System.out.println(property);
+       System.out.println(property);
         String loginToken = request.getHeader(property);
         if (loginToken == null) {
             return null;

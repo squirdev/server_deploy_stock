@@ -1,19 +1,24 @@
 package com.nq.controller.backend;
 
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.nq.common.ServerResponse;
 import com.nq.pojo.User;
 import com.nq.pojo.UserBank;
 import com.nq.service.IUserBankService;
 import com.nq.service.IUserService;
-import javax.servlet.http.HttpServletRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -25,13 +30,53 @@ public class AdminUserController {
     IUserService iUserService;
 
     @Autowired
+    private StringRedisTemplate redisTemplate; // Inject Redis Template
+
+    @Autowired
     IUserBankService iUserBankService;
 
     //分页查询所有用户列表信息 及模糊查询用户信息
     @RequestMapping({"list.do"})
     @ResponseBody
-    public ServerResponse list(@RequestParam(value = "realName", required = false) String realName, @RequestParam(value = "phone", required = false) String phone, @RequestParam(value = "agentId", required = false) Integer agentId, @RequestParam(value = "accountType", required = false) Integer accountType, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize, HttpServletRequest request) {
-        return this.iUserService.listByAdmin(realName, phone, agentId, accountType, pageNum, pageSize, request);
+    public ServerResponse list(
+        @RequestParam(value = "realName", required = false) String realName,
+        @RequestParam(value = "phone", required = false) String phone,
+        @RequestParam(value = "agentId", required = false) Integer agentId, 
+        @RequestParam(value = "accountType", required = false) Integer accountType, 
+        @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, 
+        @RequestParam(value = "pageSize", defaultValue = "10") int pageSize, 
+        HttpServletRequest request) {
+
+
+
+        // 🔹 Fetch users from database
+        ServerResponse<List<User>> result = this.iUserService.listByAdmin(realName, phone, agentId, accountType, pageNum, pageSize, request);
+        if (!result.isSuccess()) {
+            return result; // Return error if fetching users failed
+        }
+        
+        // List<User> userList = result.getData(); // Get user list
+
+        // // 🔹 Fetch online users from Redis
+        // Set<String> onlineUserKeys = redisTemplate.keys("user:online:*");
+        // Set<Integer> onlineUserIds = onlineUserKeys.stream()
+        //     .map(key -> Integer.parseInt(key.replace("user:online:", "")))
+        //     .collect(Collectors.toSet());
+
+        // // 🔹 Add online status to users
+        // userList.forEach(user -> user.setIsOnline(onlineUserIds.contains(user.getId())));
+
+        // 🔹 Return the updated list
+        // return ServerResponse.createBySuccess(userList);
+
+        return result;
+
+
+
+
+        // ServerResponse result = this.iUserService.listByAdmin(realName, phone, agentId, accountType, pageNum, pageSize, request);
+        // System.out.print(result);
+        // return result;
     }
 
     //查询用户信息是否存在

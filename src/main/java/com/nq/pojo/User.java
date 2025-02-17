@@ -21,6 +21,7 @@ public class User {
     private String nickName;
     private String realName;
     private String idCard;
+    private Boolean isOnline;
 
 
     private Integer accountType;
@@ -177,6 +178,10 @@ public class User {
 
     public void setEnableFutAmt(BigDecimal enableFutAmt) {
         this.enableFutAmt = enableFutAmt;
+    }
+
+    public void setIsOnline(Boolean isOnline) {
+        this.isOnline = isOnline;
     }
 
     public boolean equals(Object o) {
